@@ -23,7 +23,7 @@ export class SpotifyComponent implements OnInit {
   backgroundImage: string = '';
   progressBarWidth: number = 0;
 
-  constructor(private spotifyState: SpotifyStateService) {}
+  constructor(public spotifyState: SpotifyStateService) {}
 
   ngOnInit() {
     if (this.spotifyState.getToken()) {
