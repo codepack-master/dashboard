@@ -8,16 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'client';
 
-  currentPosition: Position;
 
   ngOnInit() {
-    if(navigator.geolocation){
-
-      navigator.geolocation.getCurrentPosition((position: Position) => {
-        this.currentPosition = position;
-        console.log(position.coords.latitude, position.coords.longitude);
-      })
-      
-    }
+    
   }
 }

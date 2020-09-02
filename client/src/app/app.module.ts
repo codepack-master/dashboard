@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import {LOCALE_ID} from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './components/weather/weather.component';
@@ -10,6 +10,13 @@ import { TrainComponent } from './components/train/train.component';
 import { SpotifyComponent } from './components/spotify/spotify.component';
 import localeNorwegian from '@angular/common/locales/nb';
 import { registerLocaleData } from '@angular/common';
+import { LoginComponent } from './components/login/login.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angularx-social-login';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 registerLocaleData(localeNorwegian);
 
@@ -19,14 +26,36 @@ registerLocaleData(localeNorwegian);
     WeatherComponent,
     BikesComponent,
     TrainComponent,
-    SpotifyComponent
+    SpotifyComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    SocialLoginModule
   ],
   providers: [
     { provide: localeNorwegian, useValue: 'nb-NO' },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              'clientId'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('localhost:4200'),
+          }
+        ],
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })

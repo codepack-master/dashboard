@@ -57,8 +57,7 @@ export class SpotifyComponent implements OnInit {
 
   getCurrentSong() {
     s.getMyCurrentPlaybackState({
-      market: 'ES',
-      additional_types: 'episode',
+      market: 'ES'
     }).then((song) => {
       console.log(song);
 
