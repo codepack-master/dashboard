@@ -1,22 +1,38 @@
 <div>
   <h1>Sted</h1>
-  <table>
-    <tr>
-      <th>Kl</th>
-      <th>Temp</th>
-      <th>Værikon</th>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <td>23</td>
-      <td>20</td>
-    </tr>
-  </table>
+  <div class="title-container">
+    <div class="title">Dato</div>
+
+    <div class="title">Natt</div>
+
+    <div class="title">Morgen</div>
+
+    <div class="title">Dag</div>
+
+    <div class="title">Kveld</div>
+    <div class="title">Temp</div>
+  </div>
+  <div class="weather-container">
+  <div class="weather-data" *ngFor="let data of testData">
+    
+
+      <div class="data-date">
+        {{ data.date | date: 'EEEE dd.MM':'Europe/Oslo':'nb-NO' }}
+      </div>
+
+      <div class="data-symbol" *ngFor="let item of data?.symbols">
+        
+        <div class="symbol" *ngIf="(item?.time | date : 'HH:mm:ss') === '02:00:00'" [ngClass]="item?.value"></div>
+        <div class="symbol" *ngIf="(item?.time | date : 'HH:mm:ss') === '08:00:00'" [ngClass]="item?.value"></div>
+        <div class="symbol" *ngIf="(item?.time | date : 'HH:mm:ss') === '14:00:00'" [ngClass]="item?.value"></div>
+        <div class="symbol" *ngIf="(item?.time | date : 'HH:mm:ss') === '20:00:00'" [ngClass]="item?.value"></div>
+        
+      </div>
+
+      <div class="data-temp">
+        {{data.minValue }}&deg;/{{data.maxValue }} &deg;  
+      </div>
+    
+  </div>
+</div>
 </div>

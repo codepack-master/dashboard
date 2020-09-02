@@ -1,1 +1,30 @@
-<p>spotify works!</p>
+<div className="login">
+  <a *ngIf="this.spotifyState.getToken() == null" href="{{ accessUrl }}"
+    >LOGIN TO SPOTIFY
+  </a>
+  <div *ngIf="this.spotifyState.getToken() != null">
+    <div class="main-wrapper">
+      <div class="now-playing__img" *ngIf="itemSong.song?.album != null">
+        <img src="{{ itemSong.song?.album?.images[0].url }}" />
+      </div>
+      <div class="now-playing__img" *ngIf="itemSong.song?.album == null">
+        <img src="{{ itemSong.song?.images[0].url }}" />
+      </div>
+      <div class="now-playing__side">
+        <div class="now-playing__name">{{ itemSong.song?.name }}</div>
+        <div class="now-playing__artist" *ngIf="itemSong.song?.artists">
+          {{ itemSong.song?.artists[0].name }}
+        </div>
+        <div class="now-playing__status">
+          {{ itemSong.is_playing ? "Playing" : "Paused" }}
+        </div>
+        <div class="progress">
+          <div class="progress__bar" [style.width.%]="progressBarWidth"></div>
+        </div>
+      </div>
+      <div class="background" [style.backgroundImage]="backgroundImage">
+        " "
+      </div>
+    </div>
+  </div>
+</div>
