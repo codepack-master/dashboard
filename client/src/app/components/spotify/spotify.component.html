@@ -1,5 +1,5 @@
-<div className="login">
-  <a *ngIf="this.spotifyState.getToken() == null" href="{{ accessUrl }}"
+<div class="login">
+  <a *ngIf="this.spotifyState.getToken() == null" href="{{ accessUrl }}" class="link"
     >LOGIN TO SPOTIFY
   </a>
   <div *ngIf="this.spotifyState.getToken() != null">

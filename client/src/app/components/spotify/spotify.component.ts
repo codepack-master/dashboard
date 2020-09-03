@@ -5,7 +5,7 @@ import { SpotifyStateService } from 'src/app/services/spotify-state.service';
 const s = new SpotifyWebApi();
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 const clientId = '1fa00f640fb0439b9119c0bc7a2cf31a';
-const redirectUri = 'http://localhost:4200/';
+const redirectUri = 'http://localhost:4200/admin/';
 const scopes = ['user-read-currently-playing', 'user-read-playback-state'];
 
 @Component({

@@ -17,6 +17,7 @@ import {
   FacebookLoginProvider,
 } from 'angularx-social-login';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 
 registerLocaleData(localeNorwegian);
 
@@ -28,7 +29,8 @@ registerLocaleData(localeNorwegian);
     TrainComponent,
     SpotifyComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -43,15 +45,15 @@ registerLocaleData(localeNorwegian);
       useValue: {
         autoLogin: false,
         providers: [
-          {
+          /* {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
               'clientId'
             ),
-          },
+          }, */
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('localhost:4200'),
+            provider: new FacebookLoginProvider('985505865208607'),
           }
         ],
       } as SocialAuthServiceConfig,

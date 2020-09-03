@@ -6,20 +6,20 @@ $root: './../../../assets/';
   .weather-data {
     display: flex;
     margin-bottom: 5px;
+    font-size: 50px;
 
     .data-date,
     .data-temp {
       align-self: center;
-      width: 120px;
     }
 
     .data-symbol {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
 
       .symbol {
-        height: 50px;
-        width: 50px;
+        height: 100px;
+        width: 100px;
         margin-top: 25px;
 
         $types: 'clearsky_night', 'clearsky_day', 'clearsky_polartwilight',
@@ -73,6 +73,7 @@ $root: './../../../assets/';
   margin: 0 20px;
 
   .title{
-    width: 100px;
+    margin-right: 30px;
+    font-size: 70px;
   }
 }
