@@ -1,0 +1,10 @@
+<div class="container">
+  <div
+    class="box"
+    *ngFor="let item of list; index as i"
+    (drop)="drop($event, i)"
+    (dragover)="allowDrop($event)"
+  >
+    <ng-template #comp></ng-template>
+  </div>
+</div>
